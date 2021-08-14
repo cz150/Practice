@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Practice
 {
@@ -45,24 +46,40 @@ namespace Practice
             //Method2();
             #endregion
             #region Log编辑记录
-            Data data1 = new Data { Id = 3, Name = "程哲", Age = 20, Set = 1 };//新值
-            Data data2 = new Data { Id = 3, Name = "张飞", Age = 25, Set = 0 };//旧值 
-            var da = new LogContrast<Data>();
-            var dat=da.DataComparison(data1,data2,data1.Id,44);
-            foreach (var item in dat)
-            {
-                Console.WriteLine("编辑项:"+item.EditItem+"  新值:"+item.Newvalue+"  旧值:"+item.Oldvalue+"    Id:"+item.Id+"  用户Id:"+item.UserId+"    编辑时间:"+item.EditTime);
-            }
-            Console.WriteLine();
-            Console.WriteLine();
-            Data data3 = new Data { Id = 4, Name = "韩信", Age = 25, Set = 1 };//新值
-            Data data4 = new Data { Id = 4, Name = "张良", Age = 25, Set = 1 };//旧值 
-            var dat1 = da.DataComparison(data3, data4, data3.Id, 44);
-            foreach (var item in dat1)
-            {
-                Console.WriteLine("编辑项:" + item.EditItem + "  新值:" + item.Newvalue + "  旧值:" + item.Oldvalue + "    Id:" + item.Id + "  用户Id:" + item.UserId + "    编辑时间:" + item.EditTime);
-            }
+            //Data data1 = new Data { Id = 3, Name = "程哲", Age = 20, Set = 1 };//新值
+            //Data data2 = new Data { Id = 3, Name = "张飞", Age = 25, Set = 0 };//旧值 
+            //var da = new LogContrast<Data>();
+            //var dat=da.DataComparison(data1,data2,data1.Id,44);
+            //foreach (var item in dat)
+            //{
+            //    Console.WriteLine("编辑项:"+item.EditItem+"  新值:"+item.Newvalue+"  旧值:"+item.Oldvalue+"    Id:"+item.Id+"  用户Id:"+item.UserId+"    编辑时间:"+item.EditTime);
+            //}
+            //Console.WriteLine();
+            //Console.WriteLine();
+            //Data data3 = new Data { Id = 4, Name = "韩信", Age = 25, Set = 1 };//新值
+            //Data data4 = new Data { Id = 4, Name = "张良", Age = 25, Set = 1 };//旧值 
+            //var dat1 = da.DataComparison(data3, data4, data3.Id, 44);
+            //foreach (var item in dat1)
+            //{
+            //    Console.WriteLine("编辑项:" + item.EditItem + "  新值:" + item.Newvalue + "  旧值:" + item.Oldvalue + "    Id:" + item.Id + "  用户Id:" + item.UserId + "    编辑时间:" + item.EditTime);
+            //}
             #endregion
+
+            //decimal a = 1.17M;
+            //var b = string.Format("{0:N}", a);
+            //var c = Convert.ToDecimal(b);
+            //Console.WriteLine(c);
+
+            var b = "E:/SynologyDrive/海报/XX性海报设计/2.jpg";
+            var c = b.Split("/", StringSplitOptions.RemoveEmptyEntries);
+            Console.WriteLine(c[^1]);
+
+            //stu a = new stu()
+            //{
+            //    id = 1, todecimal = 1.277M
+            //};
+            //Console.WriteLine(a.todecimal);
+
             Console.Read();
         }
         #region lock 同步锁
@@ -278,5 +295,15 @@ namespace Practice
             public DateTime EditTime { get; set; }
         }
         #endregion
+    }
+
+    public class stu
+    {
+        
+
+        public int id { get; set; }
+
+        public decimal todecimal { get => todecimal; set { Convert.ToDecimal(string.Format("0:N", this.todecimal)); } }
+        
     }
 }
