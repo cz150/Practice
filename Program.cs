@@ -70,10 +70,6 @@ namespace Practice
             //var c = Convert.ToDecimal(b);
             //Console.WriteLine(c);
 
-            var b = "E:/SynologyDrive/海报/XX性海报设计/2.jpg";
-            var c = b.Split("/", StringSplitOptions.RemoveEmptyEntries);
-            Console.WriteLine(c[^1]);
-
             //stu a = new stu()
             //{
             //    id = 1, todecimal = 1.277M
